@@ -62,24 +62,24 @@
 
 /* ─── Dark-only app ─── */
 :root {
-  --background: #0E0C0A;
-  --foreground: #F0EBE0;
-  --card: #14120E;
-  --card-foreground: #F0EBE0;
-  --popover: #14120E;
-  --popover-foreground: #F0EBE0;
+  --background: #0C0B0F;
+  --foreground: #F0ECE5;
+  --card: #16141A;
+  --card-foreground: #F0ECE5;
+  --popover: #16141A;
+  --popover-foreground: #F0ECE5;
   --primary: #E8B4B8;
-  --primary-foreground: #0E0C0A;
-  --secondary: rgba(232,180,184,0.04);
-  --secondary-foreground: #B8A99A;
-  --muted: rgba(232,180,184,0.03);
-  --muted-foreground: rgba(232,180,184,0.5);
-  --accent: rgba(232,180,184,0.08);
+  --primary-foreground: #0C0B0F;
+  --secondary: rgba(232,180,184,0.06);
+  --secondary-foreground: #D0C4B8;
+  --muted: rgba(232,180,184,0.05);
+  --muted-foreground: #9B9088;
+  --accent: rgba(232,180,184,0.10);
   --accent-foreground: #F0C8CC;
   --destructive: #EB5757;
-  --destructive-foreground: #F0EBE0;
-  --border: rgba(232,180,184,0.08);
-  --input: rgba(232,180,184,0.05);
+  --destructive-foreground: #F0ECE5;
+  --border: rgba(232,180,184,0.12);
+  --input: rgba(232,180,184,0.08);
   --ring: #E8B4B8;
   --chart-1: #E8B4B8;
   --chart-2: #C4A265;
@@ -87,8 +87,8 @@
   --chart-4: #F5E6D3;
   --chart-5: #B8A99A;
   --radius: 0.75rem;
-  --sidebar: #0E0C0A;
-  --sidebar-foreground: #F0EBE0;
+  --sidebar: #0C0B0F;
+  --sidebar-foreground: #F0ECE5;
   --sidebar-primary: #E8B4B8;
   --sidebar-primary-foreground: #0E0C0A;
   --sidebar-accent: rgba(232,180,184,0.08);
@@ -97,9 +97,9 @@
   --sidebar-ring: #E8B4B8;
 
   /* Forge design system tokens */
-  --forge-bg: #0E0C0A;
-  --forge-surface: #14120E;
-  --forge-surface-elevated: #1B1915;
+  --forge-bg: #0C0B0F;
+  --forge-surface: #16141A;
+  --forge-surface-elevated: #1E1C22;
   --forge-copper: #E8B4B8;
   --forge-copper-bright: #F0C8CC;
   --forge-rose-gold: #C4A265;
@@ -107,10 +107,10 @@
   --forge-teal: #6FCF97;
   --forge-bronze: #5A5347;
   --forge-text-primary: #F0EBE0;
-  --forge-text-secondary: #B8A99A;
-  --forge-text-dim: #5A5347;
-  --forge-border: rgba(232,180,184,0.08);
-  --forge-border-hover: rgba(196,162,101,0.3);
+  --forge-text-secondary: #D0C4B8;
+  --forge-text-dim: #7A7068;
+  --forge-border: rgba(232,180,184,0.12);
+  --forge-border-hover: rgba(196,162,101,0.35);
   --forge-success: #6FCF97;
   --forge-danger: #EB5757;
   --forge-warning: #F59E0B;
@@ -146,16 +146,16 @@
   --text-3xl: 28px;
 
   /* ─── Elevation Colors ─── */
-  --elevation-0: #0E0C0A;
-  --elevation-1: #14120E;
-  --elevation-2: #1B1915;
-  --elevation-3: #22201C;
+  --elevation-0: #0C0B0F;
+  --elevation-1: #16141A;
+  --elevation-2: #1E1C22;
+  --elevation-3: #26242A;
 
   /* ─── Border Tokens ─── */
-  --border-subtle: rgba(232,180,184,0.06);
-  --border-default: rgba(232,180,184,0.08);
-  --border-hover: rgba(232,180,184,0.20);
-  --border-active: rgba(232,180,184,0.30);
+  --border-subtle: rgba(232,180,184,0.08);
+  --border-default: rgba(232,180,184,0.12);
+  --border-hover: rgba(232,180,184,0.24);
+  --border-active: rgba(232,180,184,0.35);
 
   /* ─── Transition Tokens ─── */
   --duration-fast: 120ms;
@@ -173,24 +173,24 @@
 
 /* ─── Fusion B Dark Theme ─── */
 .dark {
-  --background: #0E0C0A;
-  --foreground: #F0EBE0;
-  --card: #14120E;
-  --card-foreground: #F0EBE0;
-  --popover: #14120E;
-  --popover-foreground: #F0EBE0;
+  --background: #0C0B0F;
+  --foreground: #F0ECE5;
+  --card: #16141A;
+  --card-foreground: #F0ECE5;
+  --popover: #16141A;
+  --popover-foreground: #F0ECE5;
   --primary: #E8B4B8;
-  --primary-foreground: #0E0C0A;
-  --secondary: rgba(232,180,184,0.04);
-  --secondary-foreground: #B8A99A;
-  --muted: rgba(232,180,184,0.03);
-  --muted-foreground: rgba(232,180,184,0.5);
-  --accent: rgba(232,180,184,0.08);
+  --primary-foreground: #0C0B0F;
+  --secondary: rgba(232,180,184,0.06);
+  --secondary-foreground: #D0C4B8;
+  --muted: rgba(232,180,184,0.05);
+  --muted-foreground: #9B9088;
+  --accent: rgba(232,180,184,0.10);
   --accent-foreground: #F0C8CC;
   --destructive: #EB5757;
-  --destructive-foreground: #F0EBE0;
-  --border: rgba(232,180,184,0.08);
-  --input: rgba(232,180,184,0.05);
+  --destructive-foreground: #F0ECE5;
+  --border: rgba(232,180,184,0.12);
+  --input: rgba(232,180,184,0.08);
   --ring: #E8B4B8;
   --chart-1: #E8B4B8;
   --chart-2: #C4A265;
@@ -198,8 +198,8 @@
   --chart-4: #F5E6D3;
   --chart-5: #B8A99A;
   --radius: 0.75rem;
-  --sidebar: #0E0C0A;
-  --sidebar-foreground: #F0EBE0;
+  --sidebar: #0C0B0F;
+  --sidebar-foreground: #F0ECE5;
   --sidebar-primary: #E8B4B8;
   --sidebar-primary-foreground: #0E0C0A;
   --sidebar-accent: rgba(232,180,184,0.08);
@@ -214,7 +214,7 @@
   }
   body {
     @apply text-foreground font-sans text-[15px];
-    background-color: #08070A;
+    background-color: #0A0910;
     background-image:
       radial-gradient(ellipse 130% 90% at 15% -10%, rgba(196, 162, 101, 0.38) 0%, transparent 55%),
       radial-gradient(ellipse 110% 80% at 85% 5%, rgba(232, 180, 184, 0.32) 0%, transparent 50%),
@@ -966,7 +966,7 @@ input[type=number] { -moz-appearance: textfield; }
 }
 
 .bg-deep-bg {
-  background-color: #0E0C0A;
+  background-color: #0C0B0F;
 }
 
 /* ─── Transaction Timeline Animations ─── */
