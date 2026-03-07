@@ -115,7 +115,7 @@ export function TransactionVault({
       <div className="relative" style={{ width: ringSize, height: ringSize }}>
         {/* Ambient rotation ring (background) */}
         <svg
-          className="absolute inset-0 animate-[orbitSpin_20s_linear_infinite] motion-reduce:hidden"
+          className="absolute inset-0 animate-[orbitSpin_12s_linear_infinite] motion-reduce:hidden"
           viewBox={`0 0 ${ringSize} ${ringSize}`}
           style={{ width: ringSize, height: ringSize }}
         >
@@ -124,7 +124,7 @@ export function TransactionVault({
             cy={ringSize / 2}
             r={radius}
             fill="none"
-            stroke={`rgba(${rgb}, 0.06)`}
+            stroke={`rgba(${rgb}, 0.12)`}
             strokeWidth={strokeWidth}
             strokeDasharray="4 8"
           />
@@ -148,7 +148,7 @@ export function TransactionVault({
             stroke={`rgba(${rgb}, 0.08)`}
             strokeWidth={strokeWidth}
           />
-          {/* Fill */}
+          {/* Completed fill (static arc for finished steps) */}
           <circle
             cx={ringSize / 2}
             cy={ringSize / 2}
@@ -166,6 +166,29 @@ export function TransactionVault({
             }}
           />
         </svg>
+
+        {/* Spinning arc indicator (visible while processing) */}
+        {!isComplete && currentIndex >= 0 && (
+          <svg
+            className="absolute inset-0 -rotate-90 animate-[vaultRingSpin_1.4s_linear_infinite]"
+            viewBox={`0 0 ${ringSize} ${ringSize}`}
+            style={{ width: ringSize, height: ringSize }}
+          >
+            <circle
+              cx={ringSize / 2}
+              cy={ringSize / 2}
+              r={radius}
+              fill="none"
+              stroke={`rgb(${rgb})`}
+              strokeWidth={strokeWidth + 1}
+              strokeLinecap="round"
+              strokeDasharray={`${circumference * 0.2} ${circumference * 0.8}`}
+              style={{
+                filter: `drop-shadow(0 0 4px rgba(${rgb}, 0.5))`,
+              }}
+            />
+          </svg>
+        )}
 
         {/* Central icon */}
         <div className="absolute inset-0 flex items-center justify-center">
