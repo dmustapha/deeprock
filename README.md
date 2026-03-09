@@ -195,15 +195,23 @@ npm run contracts:compile
 
 ## Smart Contracts
 
-| Contract | Description |
-|----------|-------------|
-| `RWAPool` | Investment pool with USDC deposits, NAV-based share pricing, and fee logic |
-| `P256SmartWallet` | ERC-4337 smart wallet with biometric P256 signature verification |
-| `BiometricRegistry` | On-chain registry mapping passkey public keys to wallet addresses |
-| `RWAPaymaster` | Sponsors gas for verified smart wallet UserOperations |
-| `P256WalletFactory` | Factory for deterministic smart wallet deployment via CREATE2 |
+All contracts deployed on Avalanche Fuji testnet. Source in `contracts/src/`.
 
-All contracts deployed on Avalanche Fuji. Source in `contracts/src/`.
+| Contract | Address | Explorer |
+|----------|---------|----------|
+| `RWAPool` | `0xA0e5327605B8ee4DAcB1763699Fc83b565378DE7` | [View](https://testnet.snowtrace.io/address/0xA0e5327605B8ee4DAcB1763699Fc83b565378DE7) |
+| `RWAPaymaster` | `0xDA4887Aea4Fa70ceB4e2707BFBcaa10Bc4F82110` | [View](https://testnet.snowtrace.io/address/0xDA4887Aea4Fa70ceB4e2707BFBcaa10Bc4F82110) |
+| `MockUSDC` | `0x84b47706a096B6F997700C956dC2C5E545d65702` | [View](https://testnet.snowtrace.io/address/0x84b47706a096B6F997700C956dC2C5E545d65702) |
+| `P256SmartWallet` | Per-user, deterministic via factory | [EntryPoint](https://testnet.snowtrace.io/address/0x5FF137D4b0FDCD49DcA30c7CF57E578a026d2789) |
+| `P256WalletFactory` | Factory for CREATE2 wallet deployment | — |
+| `BiometricRegistry` | On-chain passkey public key registry | — |
+
+**What each contract does:**
+- `RWAPool`: USDC deposits, NAV-based share pricing, redemptions, fee logic
+- `RWAPaymaster`: Sponsors gas for all smart wallet UserOperations (users never pay gas)
+- `P256SmartWallet`: ERC-4337 smart wallet with WebAuthn P256 biometric signature verification
+- `BiometricRegistry`: Maps passkey public keys to on-chain wallet addresses
+- `P256WalletFactory`: Deterministic wallet deployment via CREATE2
 
 ---
 
