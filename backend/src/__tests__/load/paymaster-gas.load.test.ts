@@ -69,7 +69,7 @@ describe.skipIf(SKIP_LOAD_TESTS)('Paymaster Gas Estimation Accuracy', () => {
     // Check paymaster deposit
     const deposit = await paymaster.getDeposit();
     console.log('Paymaster gas estimation test initialized');
-    console.log(`  Paymaster deposit: ${ethers.formatEther(deposit)} AVAX`);
+    console.log(`  Paymaster deposit: ${ethers.formatEther(deposit)} BNB`);
   });
 
   afterAll(async () => {
@@ -323,31 +323,31 @@ describe.skipIf(SKIP_LOAD_TESTS)('Paymaster Gas Estimation Accuracy', () => {
     console.log('\n=== Paymaster Deposit Check ===');
 
     const deposit = await paymaster.getDeposit();
-    const depositAvax = Number(ethers.formatEther(deposit));
+    const depositBnb = Number(ethers.formatEther(deposit));
 
-    console.log(`Paymaster deposit: ${depositAvax.toFixed(4)} AVAX`);
+    console.log(`Paymaster deposit: ${depositBnb.toFixed(4)} BNB`);
 
     // Estimate gas cost per transaction
     const estimatedGasPerTx = 300000n; // Conservative estimate
     const gasPrice = (await provider.getFeeData()).gasPrice || ethers.parseUnits('25', 'gwei');
     const costPerTx = estimatedGasPerTx * gasPrice;
-    const costPerTxAvax = Number(ethers.formatEther(costPerTx));
+    const costPerTxBnb = Number(ethers.formatEther(costPerTx));
 
     console.log(`Estimated gas per tx: ${estimatedGasPerTx.toLocaleString()}`);
     console.log(`Gas price: ${ethers.formatUnits(gasPrice, 'gwei')} gwei`);
-    console.log(`Estimated cost per tx: ${costPerTxAvax.toFixed(6)} AVAX`);
+    console.log(`Estimated cost per tx: ${costPerTxBnb.toFixed(6)} BNB`);
 
     // Calculate how many transactions can be sponsored
-    const maxTransactions = Math.floor(depositAvax / costPerTxAvax);
+    const maxTransactions = Math.floor(depositBnb / costPerTxBnb);
     console.log(`Max transactions with current deposit: ${maxTransactions}`);
 
     // Should be able to handle at least 10 transactions
-    expect(depositAvax).toBeGreaterThan(costPerTxAvax * 10);
+    expect(depositBnb).toBeGreaterThan(costPerTxBnb * 10);
 
     // Warn if deposit is getting low
     if (maxTransactions < 50) {
       console.warn(`⚠️  Warning: Paymaster deposit is running low!`);
-      console.warn(`   Recommend depositing more AVAX to the paymaster.`);
+      console.warn(`   Recommend depositing more BNB to the paymaster.`);
     }
   }, 30000);
 
@@ -360,7 +360,7 @@ describe.skipIf(SKIP_LOAD_TESTS)('Paymaster Gas Estimation Accuracy', () => {
 
     // Check initial paymaster deposit
     const initialDeposit = await paymaster.getDeposit();
-    console.log(`Initial paymaster deposit: ${ethers.formatEther(initialDeposit)} AVAX`);
+    console.log(`Initial paymaster deposit: ${ethers.formatEther(initialDeposit)} BNB`);
 
     const results: GasEstimate[] = [];
 
@@ -382,14 +382,14 @@ describe.skipIf(SKIP_LOAD_TESTS)('Paymaster Gas Estimation Accuracy', () => {
     const finalDeposit = await paymaster.getDeposit();
     const consumed = initialDeposit - finalDeposit;
 
-    console.log(`\nFinal paymaster deposit: ${ethers.formatEther(finalDeposit)} AVAX`);
-    console.log(`Total AVAX consumed: ${ethers.formatEther(consumed)} AVAX`);
+    console.log(`\nFinal paymaster deposit: ${ethers.formatEther(finalDeposit)} BNB`);
+    console.log(`Total BNB consumed: ${ethers.formatEther(consumed)} BNB`);
 
     const successful = results.filter((r) => r.success);
     if (successful.length > 0) {
       const avgGas = successful.reduce((sum, r) => sum + Number(r.actual), 0) / successful.length;
       console.log(`Avg gas per tx: ${avgGas.toLocaleString()}`);
-      console.log(`Avg AVAX per tx: ${ethers.formatEther(consumed / BigInt(successful.length))} AVAX`);
+      console.log(`Avg BNB per tx: ${ethers.formatEther(consumed / BigInt(successful.length))} BNB`);
     }
 
     expect(successful.length).toBeGreaterThan(0);

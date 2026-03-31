@@ -162,8 +162,8 @@ async function main() {
     if (process.env.RELAYER_ADDRESS || process.env.RELAYER_PRIVATE_KEY) {
       logger.info('Initializing monitoring services...');
 
-      const rpcUrl = process.env.AVALANCHE_RPC_URL || process.env.AVALANCHE_FUJI_RPC || 'https://api.avax-test.network/ext/bc/C/rpc';
-      const chainId = parseInt(process.env.CHAIN_ID || '43113');
+      const rpcUrl = process.env.BSC_TESTNET_RPC || 'https://data-seed-prebsc-1-s1.binance.org:8545/';
+      const chainId = parseInt(process.env.CHAIN_ID || '97');
 
       // Get relayer address from env or derive from private key
       let relayerAddress = process.env.RELAYER_ADDRESS;

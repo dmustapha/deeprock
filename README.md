@@ -1,9 +1,9 @@
-# DeepRock: RWA Investment Platform on Avalanche
+# DeepRock: RWA Investment Platform on BNB Chain
 
 Tokenized real-world assets on-chain: treasury bills, private credit, real estate, corporate bonds, and commodities.
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
-[![Avalanche](https://img.shields.io/badge/Avalanche-Fuji-E84142)](https://www.avax.network/)
+[![BNB Chain](https://img.shields.io/badge/BNB_Chain-Testnet-F0B90B)](https://www.bnbchain.org/)
 [![Solidity](https://img.shields.io/badge/Solidity-0.8.24-363636)](https://soliditylang.org/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
@@ -51,7 +51,7 @@ Feature showcase: https://youtu.be/YeziPNxaUwE
 
 **Account abstraction (ERC-4337):** Each user gets a P256 smart wallet deployed on-chain. The wallet is controlled by a biometric passkey credential stored on the user's device, not a seed phrase. The wallet address is deterministic and tied to the passkey's public key.
 
-**Gasless transactions:** A Paymaster contract sponsors all gas fees. Users never hold AVAX. They deposit USDC, the Paymaster pays for everything, and the transaction goes through via the ERC-4337 UserOperation flow.
+**Gasless transactions:** A Paymaster contract sponsors all gas fees. Users never hold BNB. They deposit USDC, the Paymaster pays for everything, and the transaction goes through via the ERC-4337 UserOperation flow.
 
 **NAV pricing:** Each pool has a net asset value updated daily. When you deposit, you receive pool shares priced at the current NAV. When you withdraw, shares are redeemed at the current NAV, which has increased based on yield accrued since your deposit.
 
@@ -62,7 +62,7 @@ Feature showcase: https://youtu.be/YeziPNxaUwE
 | Layer | Technology |
 |-------|-----------|
 | Frontend | Next.js 14, TypeScript, Tailwind CSS, shadcn/ui |
-| Blockchain | Avalanche Fuji Testnet, Hardhat, Solidity 0.8.24 |
+| Blockchain | BNB Chain Testnet, Hardhat, Solidity 0.8.24 |
 | Account Abstraction | ERC-4337, P256SmartWallet, RWAPaymaster |
 | Auth | WebAuthn / Passkeys (SimpleWebAuthn), Google OAuth |
 | Backend | Node.js, TypeScript, Express |
@@ -72,7 +72,7 @@ Feature showcase: https://youtu.be/YeziPNxaUwE
 
 ## Testing the App
 
-The app runs on Avalanche Fuji testnet. No real funds, no wallet setup, no extensions needed.
+The app runs on BNB Chain testnet. No real funds, no wallet setup, no extensions needed.
 
 ---
 
@@ -86,7 +86,7 @@ Three sign-in options:
 
 Click "Sign in with Passkey". Your device prompts you to save a biometric credential using Face ID, fingerprint, or PIN. No password. No seed phrase.
 
-A P256 smart wallet is deployed on Avalanche Fuji and linked to your passkey in the background. You land on the dashboard with a wallet address already assigned.
+A P256 smart wallet is deployed on BNB Chain testnet and linked to your passkey in the background. You land on the dashboard with a wallet address already assigned.
 
 Passkey support by device:
 - iPhone / iPad: Face ID or Touch ID
@@ -110,6 +110,14 @@ Click "MetaMask" and approve the connection. This links your existing EOA wallet
 **1. Get test USDC**
 
 Go to **Portfolio** in the left sidebar. Click the **"Get Test USDC"** button at the top. Test USDC is minted directly to your smart wallet. Balance updates within seconds. No external faucet needed.
+
+> **Mainnet note:** On mainnet, the faucet is replaced by real USDC deposits. Three paths are planned:
+>
+> - **External wallet transfer** — Passkey users see their smart wallet address (with QR code) and send USDC from Coinbase, MetaMask, Trust Wallet, or any other app. Wallet users invest directly from their connected EOA.
+> - **Fiat on-ramp** — Buy USDC with a debit card or bank transfer via an embedded MoonPay/Transak widget. Funds land directly at the user's address (smart wallet or EOA). No external exchange needed.
+> - **Cross-chain bridge** — Users with USDC on Ethereum, Polygon, or Arbitrum can bridge to BNB Chain via Stargate/LayerZero and then deposit.
+>
+> The smart wallet must be deployed before it can receive funds. Deployment happens automatically on first login for passkey users, so the address is always ready.
 
 **2. Browse pools**
 
@@ -197,16 +205,16 @@ npm run contracts:compile
 
 ## Smart Contracts
 
-All contracts deployed on Avalanche Fuji testnet. Source in `contracts/src/`.
+All contracts deployed on BNB Chain testnet. Source in `contracts/src/`.
 
 | Contract | Address | Explorer |
 |----------|---------|----------|
-| `RWAPool` | `0xA0e5327605B8ee4DAcB1763699Fc83b565378DE7` | [View](https://testnet.snowtrace.io/address/0xA0e5327605B8ee4DAcB1763699Fc83b565378DE7) |
-| `RWAPaymaster` | `0xDA4887Aea4Fa70ceB4e2707BFBcaa10Bc4F82110` | [View](https://testnet.snowtrace.io/address/0xDA4887Aea4Fa70ceB4e2707BFBcaa10Bc4F82110) |
-| `MockUSDC` | `0x84b47706a096B6F997700C956dC2C5E545d65702` | [View](https://testnet.snowtrace.io/address/0x84b47706a096B6F997700C956dC2C5E545d65702) |
-| `BiometricRegistry` | `0xe24fa9da76a0af2c878cc3088b523671d90d439c` | [View](https://testnet.snowtrace.io/address/0xe24fa9da76a0af2c878cc3088b523671d90d439c) |
-| `P256WalletFactory` | `0xe3BC2FEd36D4049afFA3CD3CfbF4d37F9Eab3a24` | [View](https://testnet.snowtrace.io/address/0xe3BC2FEd36D4049afFA3CD3CfbF4d37F9Eab3a24) |
-| `P256SmartWallet` | Per-user, deterministic via factory | [EntryPoint](https://testnet.snowtrace.io/address/0x0000000071727de22e5e9d8baf0edac6f37da032) |
+| `RWAPool` | `0x5F6a3AbC97E421f7B3930fc504D6a0CE4eE41e06` | [View](https://testnet.bscscan.com/address/0x5F6a3AbC97E421f7B3930fc504D6a0CE4eE41e06) |
+| `RWAPaymaster` | `0xfD46dE36745402238826672af2132e59f1caDbBA` | [View](https://testnet.bscscan.com/address/0xfD46dE36745402238826672af2132e59f1caDbBA) |
+| `MockUSDC` | `0xf2943580DABc1dd5eD417a5DC58D35110640BB2f` | [View](https://testnet.bscscan.com/address/0xf2943580DABc1dd5eD417a5DC58D35110640BB2f) |
+| `BiometricRegistry` | `0xE68ceD9a57168b2A7F889419345C43dFA89C38CC` | [View](https://testnet.bscscan.com/address/0xE68ceD9a57168b2A7F889419345C43dFA89C38CC) |
+| `P256WalletFactory` | `0x6AcCCB4DE7F9Ab442e3d50DFd7a62672E6264b86` | [View](https://testnet.bscscan.com/address/0x6AcCCB4DE7F9Ab442e3d50DFd7a62672E6264b86) |
+| `P256SmartWallet` | Per-user, deterministic via factory | [EntryPoint](https://testnet.bscscan.com/address/0x0000000071727de22e5e9d8baf0edac6f37da032) |
 
 **What each contract does:**
 - `RWAPool`: USDC deposits, NAV-based share pricing, redemptions, fee logic
@@ -304,7 +312,7 @@ User
 Passkey (WebAuthn / P256 credential on device)
     |
     v
-P256SmartWallet (ERC-4337 smart account on Fuji)
+P256SmartWallet (ERC-4337 smart account on BNB Chain)
     |
     +-- Deposit USDC
     |       |

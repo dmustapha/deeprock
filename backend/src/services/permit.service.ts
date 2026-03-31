@@ -266,8 +266,8 @@ let permitServiceInstance: PermitService | null = null;
 export function getPermitService(): PermitService {
   if (!permitServiceInstance) {
     const tokenAddress = process.env.MOCK_USDC_ADDRESS;
-    const rpcUrl = process.env.AVALANCHE_RPC_URL || "https://api.avax-test.network/ext/bc/C/rpc";
-    const chainId = parseInt(process.env.CHAIN_ID || "43113");
+    const rpcUrl = process.env.BSC_TESTNET_RPC || "https://data-seed-prebsc-1-s1.binance.org:8545/";
+    const chainId = parseInt(process.env.CHAIN_ID || "97");
 
     if (!tokenAddress) {
       throw new Error("MOCK_USDC_ADDRESS environment variable required");

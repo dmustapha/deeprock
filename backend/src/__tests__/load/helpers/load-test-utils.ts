@@ -11,8 +11,8 @@ import * as crypto from 'crypto';
 
 // Test configuration
 export const LOAD_TEST_CONFIG = {
-  rpcUrl: process.env.AVALANCHE_FUJI_RPC || 'https://api.avax-test.network/ext/bc/C/rpc',
-  chainId: 43113,
+  rpcUrl: process.env.BSC_TESTNET_RPC || 'https://data-seed-prebsc-1-s1.binance.org:8545/',
+  chainId: 97,
   mockUsdcAddress: process.env.MOCK_USDC_ADDRESS!,
   rwaPoolAddress: process.env.RWA_POOL_ADDRESS!,
   p256WalletFactoryAddress: process.env.P256_WALLET_FACTORY_ADDRESS!,

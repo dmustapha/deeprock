@@ -1,6 +1,6 @@
 /**
  * Chain utilities for preparing biometric signatures for on-chain verification
- * Used with ACP-204 secp256r1 (P-256) precompile on Avalanche
+ * Used with ACP-204 secp256r1 (P-256) precompile on BNB Chain
  */
 
 import { keccak256, encodePacked, encodeAbiParameters, parseAbiParameters } from "viem";
@@ -13,11 +13,11 @@ export const CONTRACTS = {
 } as const;
 
 // Chain configuration
-export const AVALANCHE_FUJI = {
-  id: 43113,
-  name: "Avalanche Fuji",
-  rpcUrl: process.env.NEXT_PUBLIC_AVALANCHE_RPC_URL || "https://api.avax-test.network/ext/bc/C/rpc",
-  blockExplorer: "https://testnet.snowtrace.io",
+export const BSC_TESTNET = {
+  id: 97,
+  name: "BSC Testnet",
+  rpcUrl: process.env.NEXT_PUBLIC_BSC_RPC_URL || "https://data-seed-prebsc-1-s1.binance.org:8545/",
+  blockExplorer: "https://testnet.bscscan.com",
 } as const;
 
 /**
@@ -317,12 +317,12 @@ export function truncateAddress(address: string, chars: number = 4): string {
  * Get block explorer URL for transaction
  */
 export function getExplorerTxUrl(txHash: string): string {
-  return `${AVALANCHE_FUJI.blockExplorer}/tx/${txHash}`;
+  return `${BSC_TESTNET.blockExplorer}/tx/${txHash}`;
 }
 
 /**
  * Get block explorer URL for address
  */
 export function getExplorerAddressUrl(address: string): string {
-  return `${AVALANCHE_FUJI.blockExplorer}/address/${address}`;
+  return `${BSC_TESTNET.blockExplorer}/address/${address}`;
 }

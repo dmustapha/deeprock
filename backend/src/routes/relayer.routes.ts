@@ -307,7 +307,7 @@ router.get("/balance-check", requireAuth, async (req: Request, res: Response) =>
       sufficient: hasBalance,
       balance: status.balance,
       minRequired: "0.1",
-      unit: "AVAX",
+      unit: "BNB",
     });
   } catch (error: any) {
     console.error("Balance check error:", error);
@@ -415,7 +415,7 @@ router.post("/faucet", requireAuth, relayerLimiter, async (req: Request, res: Re
       success: true,
       transaction: {
         txHash: result.txHash,
-        explorer: `https://testnet.snowtrace.io/tx/${result.txHash}`,
+        explorer: `https://testnet.bscscan.com/tx/${result.txHash}`,
       },
       targetAddress,
       isSmartWallet,

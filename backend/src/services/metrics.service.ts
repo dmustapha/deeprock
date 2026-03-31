@@ -76,12 +76,12 @@ export class MetricsService {
 
     // Gauges
     this.registerGauge(
-      "relayer_balance_avax",
-      "Current relayer wallet balance in AVAX"
+      "relayer_balance_bnb",
+      "Current relayer wallet balance in BNB"
     );
     this.registerGauge(
-      "paymaster_deposit_avax",
-      "Current paymaster deposit in EntryPoint in AVAX"
+      "paymaster_deposit_bnb",
+      "Current paymaster deposit in EntryPoint in BNB"
     );
 
     // Histograms for latency
@@ -369,9 +369,9 @@ export class MetricsService {
    * Update balance gauges
    */
   updateBalances(relayerBalance: number, paymasterDeposit?: number): void {
-    this.setGauge("relayer_balance_avax", relayerBalance);
+    this.setGauge("relayer_balance_bnb", relayerBalance);
     if (paymasterDeposit !== undefined) {
-      this.setGauge("paymaster_deposit_avax", paymasterDeposit);
+      this.setGauge("paymaster_deposit_bnb", paymasterDeposit);
     }
   }
 

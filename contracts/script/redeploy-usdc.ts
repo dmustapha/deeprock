@@ -5,7 +5,7 @@ async function main() {
 
   const [deployer] = await ethers.getSigners();
   console.log(`Deployer: ${deployer.address}`);
-  console.log(`Balance: ${ethers.formatEther(await ethers.provider.getBalance(deployer.address))} AVAX\n`);
+  console.log(`Balance: ${ethers.formatEther(await ethers.provider.getBalance(deployer.address))} BNB\n`);
 
   // Deploy new MockUSDC
   const MockUSDC = await ethers.getContractFactory("MockUSDC");

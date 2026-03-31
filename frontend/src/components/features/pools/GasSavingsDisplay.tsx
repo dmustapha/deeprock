@@ -15,7 +15,7 @@ interface GasSavingsDisplayProps {
  * Shows the estimated gas cost that users save by using the relayer
  */
 export function GasSavingsDisplay({
-  estimatedGasCost = "~0.02 AVAX",
+  estimatedGasCost = "~0.02 BNB",
   usdValue = "$0.45",
   variant = "default",
   className,

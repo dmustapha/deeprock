@@ -70,7 +70,7 @@ export class WalletAuthService {
   generateMessage(
     address: string,
     nonce: string,
-    chainId: number = 43113 // Avalanche Fuji testnet
+    chainId: number = 97 // BSC Testnet
   ): string {
     // EIP-55: Checksum the address for SIWE compliance
     const checksumAddress = getAddress(address);

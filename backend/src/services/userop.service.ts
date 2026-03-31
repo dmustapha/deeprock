@@ -117,8 +117,8 @@ export class UserOperationService {
     private redis: Redis,
     config?: Partial<UserOpConfig>
   ) {
-    const rpcUrl = config?.rpcUrl || process.env.AVALANCHE_RPC_URL || "https://api.avax-test.network/ext/bc/C/rpc";
-    this.chainId = config?.chainId || parseInt(process.env.CHAIN_ID || "43113");
+    const rpcUrl = config?.rpcUrl || process.env.BSC_TESTNET_RPC || "https://data-seed-prebsc-1-s1.binance.org:8545/";
+    this.chainId = config?.chainId || parseInt(process.env.CHAIN_ID || "97");
     this.paymasterAddress = config?.paymasterAddress || process.env.RWA_PAYMASTER_ADDRESS || "";
     this.bundlerRpcUrl = config?.bundlerRpcUrl || process.env.BUNDLER_RPC_URL || "";
 

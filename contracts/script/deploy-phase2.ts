@@ -25,11 +25,11 @@ async function main() {
   console.log(`Deployer: ${deployer.address}`);
 
   const balance = await ethers.provider.getBalance(deployer.address);
-  console.log(`Balance: ${ethers.formatEther(balance)} AVAX\n`);
+  console.log(`Balance: ${ethers.formatEther(balance)} BNB\n`);
 
   if (balance === 0n) {
-    console.error("ERROR: Deployer has no AVAX. Fund the wallet first.");
-    console.error("Fuji faucet: https://faucet.avax.network/");
+    console.error("ERROR: Deployer has no BNB. Fund the wallet first.");
+    console.error("BSC Testnet faucet: https://testnet.bnbchain.org/faucet-smart");
     process.exitCode = 1;
     return;
   }
@@ -104,13 +104,13 @@ async function main() {
   // ==================== 4. Fund Paymaster ====================
   console.log("\n4. Funding Paymaster...");
 
-  // Deposit 0.5 AVAX for gas sponsorship (adjust as needed)
+  // Deposit 0.5 BNB for gas sponsorship (adjust as needed)
   const depositAmount = ethers.parseEther("0.5");
   tx = await paymaster.deposit({ value: depositAmount });
   await tx.wait();
 
   const paymasterDeposit = await paymaster.getDeposit();
-  console.log(`   Paymaster deposit: ${ethers.formatEther(paymasterDeposit)} AVAX ✓`);
+  console.log(`   Paymaster deposit: ${ethers.formatEther(paymasterDeposit)} BNB ✓`);
 
   // ==================== 5. Verify Setup ====================
   console.log("\n5. Verifying setup...");
@@ -140,10 +140,10 @@ async function main() {
   console.log("=".repeat(60));
 
   // Verification instructions
-  if (network.chainId === 43113n) {
-    console.log("\nTo verify contracts on Snowtrace:");
-    console.log(`npx hardhat verify --network fuji ${factoryAddress} ${ENTRYPOINT_V07}`);
-    console.log(`npx hardhat verify --network fuji ${paymasterAddress} ${ENTRYPOINT_V07} ${deployer.address}`);
+  if (network.chainId === 97n) {
+    console.log("\nTo verify contracts on BscScan:");
+    console.log(`npx hardhat verify --network bscTestnet ${factoryAddress} ${ENTRYPOINT_V07}`);
+    console.log(`npx hardhat verify --network bscTestnet ${paymasterAddress} ${ENTRYPOINT_V07} ${deployer.address}`);
   }
 
   console.log("\n=== Phase 2 Summary ===");
@@ -151,7 +151,7 @@ async function main() {
   console.log(`P256SmartWallet (impl): ${implAddress}`);
   console.log(`RWAPaymaster:           ${paymasterAddress}`);
   console.log(`EntryPoint v0.7:        ${ENTRYPOINT_V07}`);
-  console.log(`Paymaster deposit:      ${ethers.formatEther(paymasterDeposit)} AVAX`);
+  console.log(`Paymaster deposit:      ${ethers.formatEther(paymasterDeposit)} BNB`);
   console.log(`Network:                ${network.name} (${network.chainId})`);
 
   console.log("\n=== Next Steps ===");

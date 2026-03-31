@@ -165,9 +165,9 @@ router.get("/metrics", async (req: Request, res: Response) => {
       const relayerCheck = await monitoringService.checkRelayerBalance();
       const paymasterCheck = await monitoringService.checkPaymasterDeposit();
 
-      // Parse AVAX values from strings like "0.5 AVAX"
-      const relayerBalance = parseFloat(relayerCheck.value.replace(" AVAX", "")) || 0;
-      const paymasterDeposit = parseFloat(paymasterCheck.value.replace(" AVAX", "")) || 0;
+      // Parse BNB values from strings like "0.5 BNB"
+      const relayerBalance = parseFloat(relayerCheck.value.replace(" BNB", "")) || 0;
+      const paymasterDeposit = parseFloat(paymasterCheck.value.replace(" BNB", "")) || 0;
 
       metricsService.updateBalances(relayerBalance, paymasterDeposit);
     }

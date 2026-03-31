@@ -573,7 +573,7 @@ router.post(
           revertReason: result.revertReason,
         },
         explorer: result.txHash
-          ? `https://testnet.snowtrace.io/tx/${result.txHash}`
+          ? `https://testnet.bscscan.com/tx/${result.txHash}`
           : null,
         message: result.status === "success"
           ? "Investment confirmed on-chain!"
@@ -650,7 +650,7 @@ router.get(
           txHash: result.txHash,
           blockNumber: result.blockNumber,
           explorer: result.txHash
-            ? `https://testnet.snowtrace.io/tx/${result.txHash}`
+            ? `https://testnet.bscscan.com/tx/${result.txHash}`
             : null,
         });
         return;
@@ -666,7 +666,7 @@ router.get(
           txHash: result.txHash,
           blockNumber: result.blockNumber,
           explorer: result.txHash
-            ? `https://testnet.snowtrace.io/tx/${result.txHash}`
+            ? `https://testnet.bscscan.com/tx/${result.txHash}`
             : null,
         });
         return;
@@ -710,8 +710,8 @@ router.get(
             entryPoint: "0x0000000071727De22E5E9d8BAf0edAc6f37da032",
             factory: process.env.P256_WALLET_FACTORY_ADDRESS,
             paymaster: process.env.RWA_PAYMASTER_ADDRESS,
-            chainId: parseInt(process.env.CHAIN_ID || "43113"),
-            network: "avalanche-fuji",
+            chainId: parseInt(process.env.CHAIN_ID || "97"),
+            network: "bsc-testnet",
           }
         : null,
       message: configured

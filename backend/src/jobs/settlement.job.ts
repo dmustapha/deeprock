@@ -59,7 +59,7 @@ export function createSettlementJob(
 
   // Setup provider and contracts for on-chain execution
   const getExecutor = () => {
-    const rpcUrl = process.env.AVALANCHE_RPC_URL;
+    const rpcUrl = process.env.BSC_TESTNET_RPC;
     const relayerPrivateKey = process.env.RELAYER_PRIVATE_KEY;
     const rwaPoolAddress = process.env.RWA_POOL_ADDRESS;
 

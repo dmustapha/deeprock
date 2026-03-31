@@ -14,7 +14,7 @@ async function main() {
   console.log(`Signer: ${signer.address}`);
 
   const balance = await ethers.provider.getBalance(signer.address);
-  console.log(`Balance: ${ethers.formatEther(balance)} AVAX\n`);
+  console.log(`Balance: ${ethers.formatEther(balance)} BNB\n`);
 
   // Connect to existing RWAPool contract
   const RWA_POOL_ADDRESS = process.env.RWA_POOL_ADDRESS;

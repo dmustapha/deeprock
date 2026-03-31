@@ -832,7 +832,7 @@ export class WebAuthnService {
     publicKeyY: string,
     credentialId: string
   ): Promise<string> {
-    const rpcUrl = process.env.AVALANCHE_RPC_URL || "https://api.avax-test.network/ext/bc/C/rpc";
+    const rpcUrl = process.env.BSC_TESTNET_RPC || "https://data-seed-prebsc-1-s1.binance.org:8545/";
     const factoryAddress = process.env.P256_WALLET_FACTORY_ADDRESS;
 
     if (!factoryAddress) {

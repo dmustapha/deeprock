@@ -6,8 +6,8 @@ async function main() {
   const network = await ethers.provider.getNetwork();
   console.log(`Network: ${network.name} (chainId: ${network.chainId})`);
 
-  if (network.chainId !== 43113n) {
-    console.log("WARNING: Not on Fuji testnet. Precompile may not be available.\n");
+  if (network.chainId !== 43113n && network.chainId !== 97n) {
+    console.log("WARNING: Not on Fuji testnet or BSC Testnet. Precompile may not be available.\n");
   }
 
   // Deploy test contract

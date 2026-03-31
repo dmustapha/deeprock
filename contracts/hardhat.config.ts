@@ -4,7 +4,7 @@ import * as dotenv from "dotenv";
 
 dotenv.config({ path: "../.env" });
 
-const FUJI_RPC = process.env.AVALANCHE_FUJI_RPC || "https://api.avax-test.network/ext/bc/C/rpc";
+const BSC_TESTNET_RPC = process.env.BSC_TESTNET_RPC || "https://data-seed-prebsc-1-s1.binance.org:8545/";
 const DEPLOYER_KEY = process.env.DEPLOYER_PRIVATE_KEY || "";
 
 const config: HardhatUserConfig = {
@@ -26,24 +26,21 @@ const config: HardhatUserConfig = {
   },
   networks: {
     hardhat: {
-      chainId: 43113, // Fork Fuji for local testing
+      chainId: 97, // BSC Testnet for local testing
     },
-    fuji: {
-      url: FUJI_RPC,
-      chainId: 43113,
+    bscTestnet: {
+      url: BSC_TESTNET_RPC,
+      chainId: 97,
       accounts: DEPLOYER_KEY ? [DEPLOYER_KEY] : [],
     },
-    mainnet: {
-      url: process.env.AVALANCHE_MAINNET_RPC || "https://api.avax.network/ext/bc/C/rpc",
-      chainId: 43114,
+    bscMainnet: {
+      url: process.env.BSC_MAINNET_RPC || "https://bsc-dataseed.binance.org/",
+      chainId: 56,
       accounts: DEPLOYER_KEY ? [DEPLOYER_KEY] : [],
     },
   },
   etherscan: {
-    apiKey: {
-      avalancheFujiTestnet: process.env.SNOWTRACE_API_KEY || "",
-      avalanche: process.env.SNOWTRACE_API_KEY || "",
-    },
+    apiKey: process.env.BSCSCAN_API_KEY || "",
   },
   gasReporter: {
     enabled: true,

@@ -85,8 +85,8 @@ export class MonitoringService {
       return {
         name: "relayer_balance",
         status,
-        value: `${balanceEther} AVAX`,
-        threshold: `${thresholdEther} AVAX`,
+        value: `${balanceEther} BNB`,
+        threshold: `${thresholdEther} BNB`,
         message,
       };
     } catch (error: any) {
@@ -94,7 +94,7 @@ export class MonitoringService {
         name: "relayer_balance",
         status: "critical",
         value: "ERROR",
-        threshold: ethers.formatEther(this.LOW_BALANCE_THRESHOLD) + " AVAX",
+        threshold: ethers.formatEther(this.LOW_BALANCE_THRESHOLD) + " BNB",
         message: `Failed to check balance: ${error.message}`,
       };
     }
@@ -135,8 +135,8 @@ export class MonitoringService {
       return {
         name: "paymaster_deposit",
         status,
-        value: `${depositEther} AVAX`,
-        threshold: `${thresholdEther} AVAX`,
+        value: `${depositEther} BNB`,
+        threshold: `${thresholdEther} BNB`,
         message,
       };
     } catch (error: any) {
@@ -144,7 +144,7 @@ export class MonitoringService {
         name: "paymaster_deposit",
         status: "critical",
         value: "ERROR",
-        threshold: ethers.formatEther(this.PAYMASTER_LOW_THRESHOLD) + " AVAX",
+        threshold: ethers.formatEther(this.PAYMASTER_LOW_THRESHOLD) + " BNB",
         message: `Failed to check deposit: ${error.message}`,
       };
     }

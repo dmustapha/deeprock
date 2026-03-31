@@ -444,7 +444,7 @@ export function InvestmentForm({ pool, onComplete, categoryColor = "232,180,184"
           {/* Gas Savings Display - Prominent */}
           <GasSavingsDisplay
             variant="prominent"
-            estimatedGasCost="~0.02 AVAX"
+            estimatedGasCost="~0.02 BNB"
             usdValue="$0.45"
           />
 

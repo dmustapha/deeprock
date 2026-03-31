@@ -10,11 +10,11 @@ async function main() {
   console.log(`Deployer: ${deployer.address}`);
 
   const balance = await ethers.provider.getBalance(deployer.address);
-  console.log(`Balance: ${ethers.formatEther(balance)} AVAX\n`);
+  console.log(`Balance: ${ethers.formatEther(balance)} BNB\n`);
 
   if (balance === 0n) {
-    console.error("ERROR: Deployer has no AVAX. Fund the wallet first.");
-    console.error("Fuji faucet: https://faucet.avax.network/");
+    console.error("ERROR: Deployer has no BNB. Fund the wallet first.");
+    console.error("BSC Testnet faucet: https://testnet.bnbchain.org/faucet-smart");
     process.exitCode = 1;
     return;
   }
@@ -170,11 +170,11 @@ async function main() {
   console.log("=".repeat(60));
 
   // Verification instructions
-  if (network.chainId === 43113n) {
-    console.log("\nTo verify contracts on Snowtrace:");
-    console.log(`npx hardhat verify --network fuji ${usdcAddress}`);
-    console.log(`npx hardhat verify --network fuji ${registryAddress}`);
-    console.log(`npx hardhat verify --network fuji ${poolAddress} ${usdcAddress} ${registryAddress}`);
+  if (network.chainId === 97n) {
+    console.log("\nTo verify contracts on BscScan:");
+    console.log(`npx hardhat verify --network bscTestnet ${usdcAddress}`);
+    console.log(`npx hardhat verify --network bscTestnet ${registryAddress}`);
+    console.log(`npx hardhat verify --network bscTestnet ${poolAddress} ${usdcAddress} ${registryAddress}`);
   }
 
   console.log("\n=== Summary ===");

@@ -16,8 +16,8 @@ import Redis from 'ioredis';
 import * as crypto from 'crypto';
 
 // Test configuration
-const RPC_URL = process.env.AVALANCHE_FUJI_RPC || 'https://api.avax-test.network/ext/bc/C/rpc';
-const CHAIN_ID = 43113;
+const RPC_URL = process.env.BSC_TESTNET_RPC || 'https://data-seed-prebsc-1-s1.binance.org:8545/';
+const CHAIN_ID = 97;
 
 // Contract addresses from .env
 const MOCK_USDC_ADDRESS = process.env.MOCK_USDC_ADDRESS!;
@@ -238,7 +238,7 @@ describe('ERC-4337 UserOperation Flow E2E', () => {
 
       const deposit = await paymaster.getDeposit();
       expect(deposit).toBeGreaterThan(0n);
-      console.log(`Paymaster deposit: ${ethers.formatEther(deposit)} AVAX`);
+      console.log(`Paymaster deposit: ${ethers.formatEther(deposit)} BNB`);
     });
 
     it('should have MockUSDC whitelisted', async () => {
@@ -508,7 +508,7 @@ describe('ERC-4337 UserOperation Flow E2E', () => {
       expect(poolAllowed).toBe(true);
 
       console.log('✓ Paymaster properly configured');
-      console.log(`  Deposit: ${ethers.formatEther(deposit)} AVAX`);
+      console.log(`  Deposit: ${ethers.formatEther(deposit)} BNB`);
       console.log(`  MockUSDC whitelisted: ${usdcAllowed}`);
       console.log(`  RWAPool whitelisted: ${poolAllowed}`);
     });

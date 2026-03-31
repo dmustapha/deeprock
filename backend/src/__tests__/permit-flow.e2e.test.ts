@@ -16,8 +16,8 @@ import { RelayerService } from '../services/relayer.service';
 import Redis from 'ioredis';
 
 // Test configuration
-const RPC_URL = process.env.AVALANCHE_FUJI_RPC || 'https://api.avax-test.network/ext/bc/C/rpc';
-const CHAIN_ID = 43113; // Fuji testnet
+const RPC_URL = process.env.BSC_TESTNET_RPC || 'https://data-seed-prebsc-1-s1.binance.org:8545/';
+const CHAIN_ID = 97; // BSC testnet
 
 // Contract addresses from .env
 const MOCK_USDC_ADDRESS = process.env.MOCK_USDC_ADDRESS!;

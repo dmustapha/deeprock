@@ -14,13 +14,13 @@ import { useAuthStore, type AuthProvider } from "@/stores/authStore";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001/api";
 
-// Avalanche Fuji testnet config
-const AVALANCHE_FUJI = {
-  chainId: "0xa869", // 43113 in hex
-  chainName: "Avalanche Fuji Testnet",
-  nativeCurrency: { name: "AVAX", symbol: "AVAX", decimals: 18 },
-  rpcUrls: ["https://api.avax-test.network/ext/bc/C/rpc"],
-  blockExplorerUrls: ["https://testnet.snowtrace.io/"],
+// BSC Testnet config
+const BSC_TESTNET = {
+  chainId: "0x61", // 97 in hex
+  chainName: "BSC Testnet",
+  nativeCurrency: { name: "BNB", symbol: "BNB", decimals: 18 },
+  rpcUrls: ["https://data-seed-prebsc-1-s1.binance.org:8545/"],
+  blockExplorerUrls: ["https://testnet.bscscan.com/"],
 };
 
 /**
@@ -33,12 +33,12 @@ async function ensureCorrectChain(): Promise<void> {
 
   const currentChainId = await window.ethereum.request({ method: "eth_chainId" });
 
-  if (currentChainId !== AVALANCHE_FUJI.chainId) {
+  if (currentChainId !== BSC_TESTNET.chainId) {
     try {
       // Try to switch to Fuji
       await window.ethereum.request({
         method: "wallet_switchEthereumChain",
-        params: [{ chainId: AVALANCHE_FUJI.chainId }],
+        params: [{ chainId: BSC_TESTNET.chainId }],
       });
     } catch (switchError: unknown) {
       const errorCode = (switchError as { code?: number })?.code;
@@ -58,28 +58,28 @@ async function ensureCorrectChain(): Promise<void> {
         try {
           await window.ethereum.request({
             method: "wallet_addEthereumChain",
-            params: [AVALANCHE_FUJI],
+            params: [BSC_TESTNET],
           });
           // After adding, verify we're on the correct chain
           const newChainId = await window.ethereum.request({ method: "eth_chainId" });
-          if (newChainId !== AVALANCHE_FUJI.chainId) {
-            throw new Error("Please switch to Avalanche Fuji network in your wallet");
+          if (newChainId !== BSC_TESTNET.chainId) {
+            throw new Error("Please switch to BSC Testnet network in your wallet");
           }
         } catch (addError: unknown) {
           const addMessage = (addError as { message?: string })?.message || "";
           if (addMessage.includes("rejected") || addMessage.includes("denied")) {
-            throw new Error("Please approve adding Avalanche Fuji network to continue");
+            throw new Error("Please approve adding BSC Testnet network to continue");
           }
-          throw new Error("Failed to add Avalanche Fuji network. Please add it manually.");
+          throw new Error("Failed to add BSC Testnet network. Please add it manually.");
         }
       } else {
         // User rejected the switch request
         const rejected =
           errorMessage.includes("rejected") || errorMessage.includes("denied");
         if (rejected) {
-          throw new Error("Please switch to Avalanche Fuji network to continue");
+          throw new Error("Please switch to BSC Testnet network to continue");
         }
-        throw new Error("Please switch to Avalanche Fuji network in your wallet");
+        throw new Error("Please switch to BSC Testnet network in your wallet");
       }
     }
   }

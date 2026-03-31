@@ -451,7 +451,7 @@ router.post("/submit", requireAuth, investmentLimiter, async (req: Request, res:
       },
       transaction: {
         txHash: result.txHash,
-        explorer: result.txHash ? `https://testnet.snowtrace.io/tx/${result.txHash}` : null,
+        explorer: result.txHash ? `https://testnet.bscscan.com/tx/${result.txHash}` : null,
       },
       message: "Swap executed successfully!",
     });
@@ -534,7 +534,7 @@ router.get("/:id", requireAuth, standardApiLimiter, async (req: Request, res: Re
         createdAt: swap.createdAt.toISOString(),
         updatedAt: swap.updatedAt.toISOString(),
       },
-      explorer: swap.txHash ? `https://testnet.snowtrace.io/tx/${swap.txHash}` : null,
+      explorer: swap.txHash ? `https://testnet.bscscan.com/tx/${swap.txHash}` : null,
     });
   } catch (error: any) {
     console.error("[Swap Get] Error:", error.message);

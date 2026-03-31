@@ -86,7 +86,7 @@ export class RelayerService {
     private redis: Redis,
     config?: Partial<RelayerConfig>
   ) {
-    const rpcUrl = config?.rpcUrl || process.env.AVALANCHE_RPC_URL || "https://api.avax-test.network/ext/bc/C/rpc";
+    const rpcUrl = config?.rpcUrl || process.env.BSC_TESTNET_RPC || "https://data-seed-prebsc-1-s1.binance.org:8545/";
     const privateKey = config?.privateKey || process.env.RELAYER_PRIVATE_KEY;
     const registryAddress = config?.biometricRegistryAddress || process.env.BIOMETRIC_REGISTRY_ADDRESS;
     const poolAddress = config?.rwaPoolAddress || process.env.RWA_POOL_ADDRESS;
@@ -99,7 +99,7 @@ export class RelayerService {
       throw new Error("BIOMETRIC_REGISTRY_ADDRESS environment variable required");
     }
 
-    this.chainId = config?.chainId || parseInt(process.env.CHAIN_ID || "43113"); // Fuji testnet
+    this.chainId = config?.chainId || parseInt(process.env.CHAIN_ID || "97"); // BSC testnet
     // Don't pass chainId to JsonRpcProvider - let it auto-detect to avoid timeout issues
     this.provider = new JsonRpcProvider(rpcUrl);
     this.wallet = new Wallet(privateKey, this.provider);
@@ -173,7 +173,7 @@ export class RelayerService {
         }
       );
 
-      // Wait for confirmation (2 blocks on Avalanche)
+      // Wait for confirmation (2 blocks on BSC)
       const receipt: TransactionReceipt = await tx.wait(2);
 
       // Log successful registration

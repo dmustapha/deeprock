@@ -23,7 +23,7 @@ describe("usePermit", () => {
     domain: {
       name: "Mock USDC",
       version: "1",
-      chainId: 43113,
+      chainId: 97,
       verifyingContract: "0xd249A6FE09666B97B85fE479E218cAE44d7dE810",
     },
     types: {

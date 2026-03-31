@@ -3,7 +3,7 @@ import { IndexerService, IndexerConfig } from "../services/indexer.service.js";
 
 // Configuration from environment
 const config: IndexerConfig = {
-  rpcUrl: process.env.AVALANCHE_RPC_URL || "https://api.avax-test.network/ext/bc/C/rpc",
+  rpcUrl: process.env.BSC_TESTNET_RPC || "https://data-seed-prebsc-1-s1.binance.org:8545/",
   biometricRegistryAddress: process.env.BIOMETRIC_REGISTRY_ADDRESS || "",
   startBlock: process.env.INDEXER_START_BLOCK ? parseInt(process.env.INDEXER_START_BLOCK, 10) : undefined,
 };

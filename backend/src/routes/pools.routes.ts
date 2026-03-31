@@ -786,11 +786,11 @@ router.post(
         onChain: {
           status: onChainStatus,
           txHash,
-          explorer: txHash ? `https://testnet.snowtrace.io/tx/${txHash}` : null,
+          explorer: txHash ? `https://testnet.bscscan.com/tx/${txHash}` : null,
         },
         message:
           finalStatus === "CONFIRMED"
-            ? "Investment confirmed on-chain. Transaction submitted to Avalanche."
+            ? "Investment confirmed on-chain. Transaction submitted to BSC."
             : finalStatus === "FAILED"
               ? "Investment failed. On-chain transaction was not successful."
               : "Investment recorded. Awaiting on-chain confirmation.",
@@ -1054,7 +1054,7 @@ router.post(
         onChain: {
           status: onChainStatus,
           txHash,
-          explorer: txHash ? `https://testnet.snowtrace.io/tx/${txHash}` : null,
+          explorer: txHash ? `https://testnet.bscscan.com/tx/${txHash}` : null,
         },
         message: txHash
           ? "Redemption confirmed on-chain. Funds returned to your wallet."
@@ -1495,7 +1495,7 @@ router.post(
           txHash: txResult.txHash,
           blockNumber: txResult.blockNumber,
           gasUsed: txResult.gasUsed,
-          explorer: `https://testnet.snowtrace.io/tx/${txResult.txHash}`,
+          explorer: `https://testnet.bscscan.com/tx/${txResult.txHash}`,
         },
         message: "Investment confirmed on-chain via permit. No gas was required from your wallet.",
       });

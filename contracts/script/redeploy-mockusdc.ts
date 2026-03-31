@@ -14,11 +14,11 @@ async function main() {
   console.log(`Deployer: ${deployer.address}`);
 
   const balance = await ethers.provider.getBalance(deployer.address);
-  console.log(`Balance: ${ethers.formatEther(balance)} AVAX\n`);
+  console.log(`Balance: ${ethers.formatEther(balance)} BNB\n`);
 
   if (balance === 0n) {
-    console.error("ERROR: Deployer has no AVAX. Fund the wallet first.");
-    console.error("Fuji faucet: https://faucet.avax.network/");
+    console.error("ERROR: Deployer has no BNB. Fund the wallet first.");
+    console.error("BSC Testnet faucet: https://testnet.bnbchain.org/faucet-smart");
     process.exitCode = 1;
     return;
   }
@@ -57,9 +57,9 @@ async function main() {
   console.log("Option 1: Update pool's USDC address (if it has a setter)");
   console.log("Option 2: Redeploy pool with new USDC address");
 
-  if (network.chainId === 43113n) {
-    console.log(`\nVerify on Snowtrace:`);
-    console.log(`npx hardhat verify --network fuji ${usdcAddress}`);
+  if (network.chainId === 97n) {
+    console.log(`\nVerify on BscScan:`);
+    console.log(`npx hardhat verify --network bscTestnet ${usdcAddress}`);
   }
 }
 

@@ -103,8 +103,8 @@ export class MonitoringJob {
       const paymasterCheck = checks.find((c) => c.name === "paymaster_deposit");
 
       if (relayerCheck && paymasterCheck) {
-        const relayerBalance = parseFloat(relayerCheck.value.replace(" AVAX", "")) || 0;
-        const paymasterDeposit = parseFloat(paymasterCheck.value.replace(" AVAX", "")) || 0;
+        const relayerBalance = parseFloat(relayerCheck.value.replace(" BNB", "")) || 0;
+        const paymasterDeposit = parseFloat(paymasterCheck.value.replace(" BNB", "")) || 0;
         this.metricsService.updateBalances(relayerBalance, paymasterDeposit);
       }
 

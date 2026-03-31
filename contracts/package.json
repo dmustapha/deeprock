@@ -7,6 +7,8 @@
     "test": "hardhat test",
     "test:coverage": "hardhat coverage",
     "deploy:fuji": "hardhat run script/deploy.ts --network fuji",
+    "deploy:bsc": "hardhat run script/deploy.ts --network bscTestnet",
+    "deploy:bsc:phase2": "hardhat run script/deploy-phase2.ts --network bscTestnet",
     "deploy:local": "hardhat run script/deploy.ts --network localhost",
     "verify": "hardhat verify",
     "typecheck": "tsc --noEmit",
