@@ -31,6 +31,7 @@ export const metadata: Metadata = {
     "Investment",
   ],
   manifest: "/manifest.json",
+  other: { "ory-verify": "orynth-bcf5db6aa1ea4594b2a876945c8624a6" },
 };
 
 export default function RootLayout({
